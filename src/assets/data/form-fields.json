@@ -1,0 +1,79 @@
+[
+    [
+        {
+            "id": "firstName",
+            "placeholder": "First name",
+            "label": "First name",
+            "required": true,   
+            "type": "text"
+        },
+        {
+            "id": "lastName",
+            "placeholder": "Last name",
+            "label": "Last name",
+            "required": true,
+            "type": "text"
+        }
+    ],
+    {
+        "id": "email",
+        "required": true,
+        "placeholder": "Enter your email",
+        "label": "Email",
+        "type": "text"
+    },
+    {
+        "id": "address1",
+        "label": "Address 1",
+        "placeholder": "Enter your address 1",
+        "type": "text"
+    },
+    [
+        {
+            "id": "city",
+            "label": "City",
+            "placeholder": "Enter your City",
+            "type": "text"
+        },
+        {
+            "id": "state",
+            "label": "State",
+            "placeholder": "Enter your State",
+            "type": "text"
+        },
+        {
+            "id": "zip",
+            "placeholder": "Enter your Zip code",
+            "label": "Zip",
+            "type": "text"
+        }
+    ],
+    {
+        "id": "phone",
+        "label": "Phone number",
+        "placeholder": "Phone",
+        "required": true,
+        "type": "text"
+    },
+    {
+        "id": "jobTitle",
+        "label": "Job Title",
+        "options": [
+            "Engineer - lead",
+            "Engineer - mid level",
+            "Engineer - junior",
+            "Engineer - front end focused",
+            "Engineer - backend focused",
+            "Engineer - full stack"
+        ],
+        "placeholder": "Please select job title",
+        "type": "select",
+        "required": true
+    },
+    {
+        "id": "reason",
+        "label": "Reason",
+        "placeholder": "Describe why you are a good fit for the job you are applying for.",
+        "type": "textarea"
+    }
+]

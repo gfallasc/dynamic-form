@@ -1,0 +1,13 @@
+# Tasks
+- [x] Create react app
+- [x] Add libraries (styled-components, redux, redux-toolkit, jest)
+- [x] Create form component
+- [x] Create form fields styled components
+- [x] Add form validation
+- [x] Handle form submit
+- [x] Add global state with redux
+- [x] Add global styles (theme)
+- [x] Create submitted successfully page
+- [x] Committed public repo
+- [ ] Deploy to gh pages
+- [ ] Add unit tests, at least 95% coverage

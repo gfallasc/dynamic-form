@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useSelector } from "react-redux";
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { JobApplicationForm } from './JobApplicationForm/JobApplicationForm';
+import { AppState } from './appStore';
+import ThankYouPage from './ThankYouPage/ThankYouPage';
+import theme from './ui/theme';
 
 function App() {
+  const isSubmitted = useSelector((state: AppState) => state.form.isSubmitted);
+  const formData = useSelector((state: AppState) => state.form.values)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={theme}>
+        {
+          isSubmitted ? <ThankYouPage formData={formData} /> : <JobApplicationForm />
+        }
+      </ThemeProvider>
     </div>
   );
 }
