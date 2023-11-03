@@ -1,6 +1,7 @@
 import './App.css';
+import React from 'react';
 import { useSelector } from "react-redux";
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { JobApplicationForm } from './JobApplicationForm/JobApplicationForm';
 import { AppState } from './appStore';
 import ThankYouPage from './ThankYouPage/ThankYouPage';

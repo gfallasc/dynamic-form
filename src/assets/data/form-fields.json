@@ -1,20 +1,23 @@
 [
     [
-        {
-            "id": "firstName",
-            "placeholder": "First name",
-            "label": "First name",
-            "required": true,   
-            "type": "text"
-        },
-        {
-            "id": "lastName",
-            "placeholder": "Last name",
-            "label": "Last name",
-            "required": true,
-            "type": "text"
-        }
+        [
+            [{
+                "id": "firstName",
+                "placeholder": "First name",
+                "label": "First name",
+                "required": true,
+                "type": "text"
+            },
+            {
+                "id": "lastName",
+                "placeholder": "Last name",
+                "label": "Last name",
+                "required": true,
+                "type": "text"
+            }]
+        ]
     ],
+    [
     {
         "id": "email",
         "required": true,
@@ -27,7 +30,8 @@
         "label": "Address 1",
         "placeholder": "Enter your address 1",
         "type": "text"
-    },
+    }
+],
     [
         {
             "id": "city",

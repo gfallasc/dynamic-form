@@ -1,4 +1,4 @@
-
+import React from 'react';
 import formFieldsJson from "../assets/data/form-fields.json";
 import { FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,8 +33,10 @@ function FormField({ type, ...props }: FormFieldProps) {
     return <InputFormField {...props} />
 }
 
+
 export function JobApplicationForm() {
-    const formFields: FormFieldObj[][] = formFieldsJson.map((field) => Array.isArray(field) ? field : [field]);
+    // @ts-ignore
+    const allFields: FormFieldObj[] = formFieldsJson.flat();
     // Form handles the state using a redux state, FormField children are stateless
     const dispatch = useDispatch();
     const values = useSelector((state: AppState) => state.form.values);
@@ -44,7 +46,7 @@ export function JobApplicationForm() {
         e.preventDefault();
 
         let isValid = true;
-        formFields.flat().forEach((field) => {
+        allFields.forEach((field) => {
             const errorMessage = validateField(field.id, field.label, values[field.id], field.required);
             if (errorMessage) {
                 dispatch(setFieldError({ field: field.id, error: errorMessage }));
@@ -74,28 +76,31 @@ export function JobApplicationForm() {
         }
     };
 
+    const renderItem = (item: any) => {
+        if (Array.isArray(item)) {
+            const Wrapper = Array.isArray(item[0]) ? React.Fragment : FormFieldGroup;
+            return (
+                <Wrapper>
+                    {item.map((i) => renderItem(i))}
+                </Wrapper>);
+        }
+    
+        return <FormField
+            {...item}
+            key={item.id}
+            value={values[item.id]}
+            error={errors[item.id]}
+            onChange={(e) => { handleFieldChange(item, e.target.value) }}
+            onBlur={(e) => { handleFieldBlur(item, e.target.value) }} />;
+    }
+    
+
     return (
         <>
             <Title>Job Application</Title>
             <Form onSubmit={handleSubmit} noValidate>
                 {
-                    formFields.map((formFieldGroup, index) => {
-                        return (
-                            <FormFieldGroup key={index}>
-                                {
-                                    formFieldGroup.map((field) => {
-                                        return <FormField
-                                            {...field}
-                                            key={field.id}
-                                            value={values[field.id]}
-                                            error={errors[field.id]}
-                                            onChange={(e) => { handleFieldChange(field, e.target.value) }}
-                                            onBlur={(e) => { handleFieldBlur(field, e.target.value) }} />
-                                    })
-                                }
-                            </FormFieldGroup>
-                        )
-                    })
+                    formFieldsJson.map(item => renderItem(item))
                 }
                 <SubmitButton type="submit">
                     <span>SUBMIT</span>

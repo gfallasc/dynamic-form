@@ -1,3 +1,4 @@
+import React from 'react';
 import formFieldsJson from "../assets/data/form-fields.json";
 import ValueDisplay from "./ValueDisplay";
 import { FormValuesDisplay, Title, ValueDisplayGroup } from "./ThankYouPage.styled";

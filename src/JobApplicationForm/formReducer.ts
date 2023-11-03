@@ -44,7 +44,7 @@ const formSlice = createSlice({
         },
         setFormSubmitted: (state) => {
             state.isSubmitted = true;
-        },
+        }
     },
 });
 

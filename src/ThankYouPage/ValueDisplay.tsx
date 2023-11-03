@@ -1,3 +1,4 @@
+import React from 'react';
 import { ValueDisplayWrapper } from "./ValueDisplay.styled";
 
 type ValueDisplayProps = {
